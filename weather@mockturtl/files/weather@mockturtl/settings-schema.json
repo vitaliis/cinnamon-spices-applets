@@ -1,5 +1,14 @@
 {
-  "woeidLookup":
+  "head":
+  { "type": "header"
+  , "description": "Settings for weather@mockturtl"
+  }
+,  "keybinding":
+  { "type": "keybinding"
+  , "description": "Set the keybinding to call the menu"
+  , "default": "<Super><Shift>w"
+  }
+, "woeidLookup":
   { "type": "button"
   , "description": "Get WOEID"
   , "callback": "woeidLookup"
@@ -19,6 +28,11 @@
     { "celsius": "celsius"
     , "fahrenheit": "fahrenheit"
     }
+  }
+, "temperatureHighFirst":
+  { "type": "checkbox"
+  , "default": false
+  , "description": "Show high temperature first in forecast"
   }
 , "windSpeedUnit":
   { "type": "combobox"

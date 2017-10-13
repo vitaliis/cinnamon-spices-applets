@@ -57,6 +57,7 @@ MyApplet.prototype = {
     this.updating = false;
     this.outdated = false;
     this.printers = [];
+    this.setIcon('printer-printing');
     this.onSettingsChanged();
   },
 
@@ -74,7 +75,7 @@ MyApplet.prototype = {
     Mainloop.timeout_add_seconds(3, Lang.bind(this, this.warningTimeout));
     this.update();
   },
-  
+
   warningTimeout: function() {
     this.printWarning = false;
     this.update();
@@ -82,11 +83,11 @@ MyApplet.prototype = {
 
   setIcon: function(iconName) {
     if (this.symbolic_icons) this.set_applet_icon_symbolic_name(iconName);
-    else this.set_applet_icon_name(iconName);  
+    else this.set_applet_icon_name(iconName);
   },
 
   onMenuToggled: function() {
-    if(!this.menu.isOpen && this.outdated) this.update();
+    if(!this.menu.isOpen && this.outdated && !this.printWarning) this.update();
   },
 
   onSettingsChanged: function() {
@@ -136,7 +137,7 @@ MyApplet.prototype = {
     Util.spawn_async(['python', APPLET_PATH + '/lpstat-a.py'], Lang.bind(this, function(out) {
       this.printers = [];
       Util.spawn_async(['/usr/bin/lpstat', '-d'], Lang.bind(this, function(out2) {//To check default printer
-        if(out2.substring(0, 2) != 'no') out2 = out2.split(': ')[1].trim();
+        if(out2.split(': ')[1] != undefined) out2 = out2.split(': ')[1].trim();
         else out2 = 'no default';
         out = out.split('\n');
         this.printersCount = out.length - 2;
@@ -193,6 +194,7 @@ MyApplet.prototype = {
               for(var n = 0; n < sendJobs.length; n++) subMenu.menu.addMenuItem(sendJobs[n]);
               this.menu.addMenuItem(subMenu);
             }
+            this.updating = false;
 //Update Icon
             if(this.jobsCount > 0 && this.show_jobs) this.set_applet_label(this.jobsCount.toString());
             else this.set_applet_label('');
@@ -202,7 +204,6 @@ MyApplet.prototype = {
               if(this.printWarning) this.setIcon('printer-warning');
               else if(this.show_error && this.printError) this.setIcon('printer-error');
               else this.setIcon('printer-printing');
-              this.updating = false;
             }));
           }))
         }))

@@ -1,10 +1,10 @@
 # Mosaab Alzoubi <moceap@hotmail.com>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gno-Menu\n"
+"Project-Id-Version: Cinnamenu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-12-17 20:35+0300\n"
+"POT-Creation-Date: 2017-10-08 11:14-0500\n"
+"PO-Revision-Date: 2017-03-22 11:08+0100\n"
 "Last-Translator: Mosaab Alzoubi <moceap@hotmail.com>\n"
 "Language-Team: Arabic <>\n"
 "Language: en_US\n"
@@ -12,230 +12,425 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
-#: convenience.js
-#: extension.js
-msgid "Gno-Menu: Search Firefox bookmarks disabled"
-msgstr "غنو-مينيو: تم تعطيل البحث في علامات فيرفكس"
-
-msgid ""
-"If you want to search Firefox bookmarks, you must install the required"
-" pacakages: libgir1.2-gda-5.0 [Ubuntu] or libgda-sqlite [Fedora]"
+#: buttons.js:313
+msgid "Please provide your password to uninstall this application"
 msgstr ""
-"لتفعيل البحث بعلامات فيرفكس، يجب أن تثبت "
-"الحزمة: libgir1.2-gda-5.0 لأوبنتو أو libgda-sqlite لفيدورا"
 
-msgid "Gno-Menu: Search Midori bookmarks disabled"
-msgstr "غنو-مينيو: تم تعطيل البحث في علامات ميدوري"
-
-msgid ""
-"If you want to search Midori bookmarks, you must install the required"
-" pacakages: libgir1.2-gda-5.0 [Ubuntu] or libgda-sqlite [Fedora]"
+#: buttons.js:955
+msgid "Add to panel"
 msgstr ""
-"لتفعيل البحث بعلامات ميدوري، يجب أن تثبت "
-"الحزمة: libgir1.2-gda-5.0 لأوبنتو أو libgda-sqlite لفيدورا"
 
-msgid "Recent"
-msgstr "الحديثة"
+#: buttons.js:957
+msgid "Add to desktop"
+msgstr ""
 
-msgid "Webmarks"
-msgstr "علامات الويب"
+#: buttons.js:960
+msgid "Remove from favorites"
+msgstr ""
 
-msgid "Favorites"
-msgstr "المفضلة"
+#: buttons.js:962
+msgid "Add to favorites"
+msgstr ""
 
-msgid "Places"
-msgstr "الأماكن"
+#: buttons.js:964
+msgid "Uninstall"
+msgstr ""
 
-msgid "Toggle Startup Apps View"
-msgstr "التبديل بين عرض التطبيقات المبدئي"
+#: buttons.js:966
+msgid "Run with NVIDIA GPU"
+msgstr ""
 
+#: buttons.js:1162 applet.js:2175
 msgid "List View"
 msgstr "طريقة القائمة"
 
+#: buttons.js:1163 applet.js:2176
+msgid "Switch to list view"
+msgstr ""
+
+#: buttons.js:1168 applet.js:2175
 msgid "Grid View"
 msgstr "طريقة الشبكة"
 
-msgid "Type to search..."
-msgstr "اكتب لتبحث..."
+#: buttons.js:1169 applet.js:2176
+msgid "Switch to grid view"
+msgstr ""
 
+#: applet.js:146
+msgid "Initializing"
+msgstr ""
+
+#: applet.js:250
+msgid "No description available"
+msgstr ""
+
+#: applet.js:927
+msgid "Bookmarks"
+msgstr ""
+
+#: applet.js:930
 msgid "All Applications"
 msgstr "كل التطبيقات"
 
-msgid "Frequent Apps"
-msgstr "التطبيقات الشائعة"
+#: applet.js:961
+msgid "Places"
+msgstr "الأماكن"
 
+#: applet.js:965
+msgid "Recent Files"
+msgstr "الحديثة"
+
+#: applet.js:968
 msgid "Favorite Apps"
 msgstr "التطبيقات المفضلة"
 
-msgid "Restart Shell"
-msgstr "إعادة تشغيل غنوم"
+#: applet.js:1227
+msgid "gir1.2-gda-5.0 package required for Firefox and Midori bookmarks."
+msgstr ""
 
-msgid "Suspend"
-msgstr "علّق"
+#: applet.js:1307
+msgid "Clear List"
+msgstr ""
 
-msgid "Shutdown"
-msgstr "أطفئ"
+#: applet.js:1318
+msgid "No recent documents"
+msgstr ""
 
-msgid "Logout User"
-msgstr "اخرج"
+#: applet.js:2064
+msgid "Type to search..."
+msgstr "اكتب لتبحث..."
 
+#: applet.js:2168
+msgid "Account details"
+msgstr ""
+
+#: applet.js:2182
 msgid "Lock Screen"
 msgstr "اقفل"
 
-msgid "Preferences"
-msgstr "تفضيلات القائمة"
+#: applet.js:2183
+msgid "Lock the screen"
+msgstr ""
 
-msgid "No cinnamenu stylesheet found"
-msgstr "لم يعثر على نمط عرض غنو-مينيو"
+#: applet.js:2204
+msgid "Logout"
+msgstr ""
 
-#: placeDisplay.js
+#: applet.js:2205
+msgid "Leave the session"
+msgstr ""
+
+#: applet.js:2212
+msgid "Quit"
+msgstr ""
+
+#: applet.js:2213
+msgid "Shutdown the computer"
+msgstr ""
+
+#: placeDisplay.js:57
+#, javascript-format
 msgid "Failed to launch \"%s\""
-msgstr "تعذر بدء \"%s\""
+msgstr ""
 
+#: placeDisplay.js:146
 msgid "Home"
 msgstr "المنزل"
 
+#: placeDisplay.js:220
 msgid "Computer"
 msgstr "الحاسوب"
 
+#: placeDisplay.js:224
 msgid "Browse network"
 msgstr "استعرض الشبكة"
 
-#: prefs.js
-msgid "<b>Panel Settings</b>"
-msgstr "<b>إعدادات الشريط</b>"
+#. Cinnamenu@json->settings-schema.json->category-click->description
+msgid "Activate categories on click"
+msgstr ""
 
-msgid "Disable activities hot corner"
-msgstr "عطّل الزاوية النشطة"
+#. Cinnamenu@json->settings-schema.json->category-click->tooltip
+msgid ""
+"When enabled, category views are activated on click instead of on hover."
+msgstr ""
 
-msgid "Remove View button from panel"
-msgstr "احذف زر العرض من الشريط"
+#. Cinnamenu@json->settings-schema.json->category-icon-size->description
+#. Cinnamenu@json->settings-schema.json->category-icon-size->tooltip
+msgid "Category icon size"
+msgstr ""
 
-msgid "Label for View button"
-msgstr "عبارة زر العرض"
+#. Cinnamenu@json->settings-schema.json->category-icon-size->units
+#. Cinnamenu@json->settings-schema.json->apps-list-icon-size->units
+#. Cinnamenu@json->settings-schema.json->apps-grid-icon-size->units
+msgid "pixels"
+msgstr ""
 
-msgid "Use icon with View button"
-msgstr "استعمل رمز لزر العرض"
+#. Cinnamenu@json->settings-schema.json->search-filesystem->description
+msgid "Enable filesystem path entry in search box"
+msgstr ""
 
-msgid "Remove Apps button from panel"
-msgstr "احذف زر التطبيقات من الشريط"
+#. Cinnamenu@json->settings-schema.json->search-filesystem->tooltip
+msgid "Allows path entry in the menu search box."
+msgstr ""
 
-msgid "Label for Apps button"
-msgstr "عبارة زر التطبيقات"
+#. Cinnamenu@json->settings-schema.json->menu-editor-button->description
+msgid "Open the menu editor"
+msgstr ""
 
-msgid "Use icon with Apps button"
-msgstr "استعمل رمز لزر التطبيقات"
+#. Cinnamenu@json->settings-schema.json->menu-editor-button->tooltip
+msgid "Press this button to customize your menu entries."
+msgstr ""
 
-msgid "Remove Menu button from panel"
-msgstr "احذف زر القائمة من الشريط"
+#. Cinnamenu@json->settings-schema.json->activate-on-hover->description
+msgid "Open the menu when I move my mouse over it"
+msgstr ""
 
-msgid "Label for Menu button"
-msgstr "عبارة زر القائمة"
+#. Cinnamenu@json->settings-schema.json->activate-on-hover->tooltip
+msgid "Enable opening the menu when the mouse enters the applet"
+msgstr ""
 
-msgid "Use icon with Menu button"
-msgstr "استعمل رمز لزر القائمة"
+#. Cinnamenu@json->settings-schema.json->privacy-settings-button->description
+#, fuzzy
+msgid "Toggle recent files"
+msgstr "الحديثة"
 
-msgid "Disable Menu button hot spot"
-msgstr "عطل بقعة زر القائمة النشطة"
+#. Cinnamenu@json->settings-schema.json->privacy-settings-button->tooltip
+msgid "Press this button to customize your privacy settings."
+msgstr ""
 
-msgid "Disable Menu button shortcut key"
-msgstr "عطل اختصار زر القائمة"
+#. Cinnamenu@json->settings-schema.json->enable-bookmarks->description
+msgid "Show web bookmarks"
+msgstr ""
 
-msgid "Invalid accelerator. Try F12, <Super>space, <Ctrl><Alt><Shift>a, etc."
-msgstr "اختصار خاطئ. جرب F12، <Super>space، <Ctrl><Alt><Shift>a، إلخ."
+#. Cinnamenu@json->settings-schema.json->enable-bookmarks->tooltip
+msgid "Choose whether or not bookmarks are indexed in the menu."
+msgstr ""
 
-msgid "Set Menu button position"
-msgstr "اضبط موضع زر القائمة"
+#. Cinnamenu@json->settings-schema.json->startup-view-mode->description
+#. Cinnamenu@json->settings-schema.json->startup-view-mode->tooltip
+msgid "Startup applications view mode"
+msgstr ""
 
-msgid "Left"
-msgstr "يسار"
-
-msgid "Center"
-msgstr "وسط"
-
-msgid "Right"
-msgstr "يمين"
-
-msgid "<b>Menu Settings</b>"
-msgstr "<b>إعدادات القائمة</b>"
-
-msgid "Hide User Options Panel"
-msgstr "أخفِ شريط خيارات المستخدم"
-
-msgid "Hide Shortcuts Panel"
-msgstr "أخف شريط الاختصارات"
-
-msgid "Menu layout size"
-msgstr "حجم نمط القائمة"
-
-msgid "Normal"
-msgstr "عادي"
-
-msgid "Compact"
-msgstr "متراص"
-
-msgid "Icons to display on Shortcuts Panel"
-msgstr "الرموز المعروضة بشريط الاختصارات"
-
-msgid "Applications to display at startup"
-msgstr "التطبيقات المعروضة بالبداية"
-
-msgid "All"
-msgstr "الكل"
-
-msgid "Frequent"
-msgstr "المتكررة"
-
-msgid "None"
-msgstr "لا شيء"
-
-msgid "Number of columns in Application Grid"
-msgstr "عدد الأعمدة في الشبكة"
-
-msgid "3"
-msgstr "3"
-
-msgid "4"
-msgstr "4"
-
-msgid "5"
-msgstr "5"
-
-msgid "6"
-msgstr "6"
-
-msgid "7"
-msgstr "7"
-
-msgid "Default view mode for applications"
-msgstr "النمط الافتراضي لعرض التطبيقات"
-
-msgid "List"
-msgstr "القائمة"
-
+#. Cinnamenu@json->settings-schema.json->startup-view-mode->options
 msgid "Grid"
 msgstr "الشبكة"
 
-msgid "Hide Categories Panel"
-msgstr "أخفِ شريط التصنيفات"
+#. Cinnamenu@json->settings-schema.json->startup-view-mode->options
+msgid "List"
+msgstr "القائمة"
 
-msgid "Category selection method"
-msgstr "طريقة اختيار التصنيفات"
+#. Cinnamenu@json->settings-schema.json->menu-icon-custom->description
+msgid "Use a custom icon"
+msgstr ""
 
-msgid "Hover"
-msgstr "التمرير"
+#. Cinnamenu@json->settings-schema.json->menu-icon-custom->tooltip
+msgid "Unchecking this allows the theme to set the icon"
+msgstr ""
 
-msgid "Click"
-msgstr "النقر"
+#. Cinnamenu@json->settings-schema.json->cinnamenuProvidersSection->title
+#. Cinnamenu@json->metadata.json->name
+msgid "Cinnamenu"
+msgstr ""
 
-msgid "Size of Shortcuts Panel icons"
-msgstr "حجم رموز شريط الاختصارات"
+#. Cinnamenu@json->settings-schema.json->providers->title
+msgid "Search Providers"
+msgstr ""
 
-msgid "Size of Application List icons"
-msgstr "حجم رموز قائمة التطبيقات"
+#. Cinnamenu@json->settings-schema.json->menu->title
+msgid "Layout and Content"
+msgstr ""
 
-msgid "Size of Application Grid icons"
-msgstr "حجم رموز شبكة التطبيقات"
+#. Cinnamenu@json->settings-schema.json->appearance->title
+msgid "Appearance"
+msgstr ""
 
+#. Cinnamenu@json->settings-schema.json->menu-behave->title
+#. Cinnamenu@json->settings-schema.json->menu-icons->title
+msgid "Menu"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->extensionProvidersSection->title
+msgid "No search provider extensions found"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->menu-layout->title
+msgid "Layout"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->panel-appear->title
+#. Cinnamenu@json->settings-schema.json->panel-behave->title
+msgid "Panel"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->menu-content->title
+msgid "Content"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->panel->title
+msgid "Behavior"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-windows->description
+msgid "Enable searching of open windows"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-windows->tooltip
+msgid "Choose whether or not open windows are indexed in menu searches."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-animation->description
+msgid "Use menu animations"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-animation->tooltip
+msgid "Allow the menu to animate on open and close"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-application-icons->description
+msgid "Show application icons"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-application-icons->tooltip
+msgid "Choose whether or not to show icons on applications."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->overlay-key->description
+msgid "Keyboard shortcut to open and close the menu"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->apps-grid-column-count->description
+#. Cinnamenu@json->settings-schema.json->apps-grid-column-count->tooltip
+msgid "Number of columns in apps grid"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->apps-grid-column-count->units
+msgid "columns"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-tooltips->description
+msgid "Show tooltips"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-tooltips->tooltip
+msgid ""
+"When enabled, tooltips containing the item's name or description is shown "
+"when hovered over."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->tooltip-delay->description
+msgid "Tooltip delay"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->tooltip-delay->tooltip
+msgid ""
+"The delay time in milliseconds for tooltips when hovering over a menu item."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->tooltip-delay->units
+#. Cinnamenu@json->settings-schema.json->hover-delay->units
+msgid "milliseconds"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->apps-list-icon-size->description
+#. Cinnamenu@json->settings-schema.json->apps-list-icon-size->tooltip
+msgid "Applications list icon size"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->hover-delay->description
+msgid "Menu hover delay:"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->hover-delay->tooltip
+msgid "Delay between switching categories"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->get-providers->description
+msgid "Example Search Providers"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-custom-menu-
+#. height->description
+#. Cinnamenu@json->settings-schema.json->enable-custom-menu-height->tooltip
+msgid "Use a custom menu height"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->custom-menu-height->description
+#. Cinnamenu@json->settings-schema.json->custom-menu-height->tooltip
+msgid "Custom menu height"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->custom-menu-height->units
+msgid "px"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-apps-description-on-
+#. buttons->description
+msgid "Show application descriptions under titles"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-apps-description-on-
+#. buttons->tooltip
+msgid ""
+"Choose whether or not to show the application description on the application "
+"buttons."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->menu-label->description
+#. Cinnamenu@json->settings-schema.json->menu-label->tooltip
+msgid "Set the custom menu button icon name"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-autoscroll->description
+msgid "Enable autoscrolling in application list"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-autoscroll->tooltip
+msgid ""
+"Choose whether or not to enable smooth autoscrolling in the application list."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-search-providers->description
+msgid "Enable search providers"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->enable-search-providers->tooltip
+msgid ""
+"Choose whether or not search provider results are indexed in menu searches."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-places->description
+msgid "Show bookmarks and places"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-places->tooltip
+msgid "Choose whether or not to show bookmarks and places in the menu."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->apps-grid-icon-size->description
+#. Cinnamenu@json->settings-schema.json->apps-grid-icon-size->tooltip
+msgid "Applications grid icon size"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->menu-icon->description
+msgid "Icon"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->menu-icon->tooltip
+msgid "Select an icon to show in the panel."
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-category-icons->description
+msgid "Show category icons"
+msgstr ""
+
+#. Cinnamenu@json->settings-schema.json->show-category-icons->tooltip
+msgid "Choose whether or not to show icons on categories."
+msgstr ""
+
+#. Cinnamenu@json->metadata.json->description
+msgid ""
+"A flexible menu providing formatting options, web bookmarks, open window "
+"lookup, and search provider support with fuzzy searching."
+msgstr ""

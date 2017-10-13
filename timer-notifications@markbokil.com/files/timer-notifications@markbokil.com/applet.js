@@ -13,15 +13,22 @@ const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const Mainloop = imports.mainloop;
 const ModalDialog = imports.ui.modalDialog;
-const PanelMenu = imports.ui.panelMenu;
+const Gettext = imports.gettext;
 
 const AppletMeta = imports.ui.appletManager.applets['timer-notifications@markbokil.com'];
 const AppletDir = imports.ui.appletManager.appletMeta['timer-notifications@markbokil.com'].path;
 const ConfigFile = GLib.build_filenamev([global.userdatadir, 'applets/timer-notifications@markbokil.com/config.js']);
-const AppOptions = AppletMeta.config.Options;
+var AppOptions = AppletMeta.config.Options;
 const OpenFileCmd = "xdg-open";
     
-    
+    // l10n/translation support
+const UUID = "timer-notifications@markbokil.com";
+Gettext.bindtextdomain(UUID, GLib.get_home_dir() + "/.local/share/locale");
+
+function _(str) {
+  return Gettext.dgettext(UUID, str);
+}
+
 function ConfirmDialog(){
     this._init();
 }
@@ -74,6 +81,8 @@ MyApplet.prototype = {
             this.MessageStr = AppOptions.MessageStr;
             this.SoundPath = AppOptions.SoundPath; 
             this.LabelOn = AppOptions.LabelOn; 
+		
+            this.Timers = AppOptions.Timers;
 
             this.set_applet_icon_path(AppletDir + "/" + AppOptions.AppIcon);
             this.set_applet_label("");
@@ -96,7 +105,7 @@ MyApplet.prototype = {
             
             this.buildTimePresetMenu();
 
-            this.timerMenuItem = new PopupMenu.PopupMenuItem("Minutes: 0", { reactive: false });
+            this.timerMenuItem = new PopupMenu.PopupMenuItem(_("Minutes: 0"), { reactive: false });
             this.menu.addMenuItem(this.timerMenuItem);
                                   
             this._timerSlider = new PopupMenu.PopupSliderMenuItem(0);
@@ -129,130 +138,30 @@ MyApplet.prototype = {
     },
 
     buildTimePresetMenu: function() {
-            this.presetTimeMenu = new PopupMenu.PopupSubMenuMenuItem(_("Time Presets"));   
-
-            this.timerPresetItem240 = new PopupMenu.PopupMenuItem("240 Minutes - 4 hrs.");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem240);
-            this.timerPresetItem240.connect('activate', Lang.bind(this, this.doTimePreset240, '_output'));
-            
-            this.timerPresetItem180 = new PopupMenu.PopupMenuItem("180 Minutes - 3 hrs.");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem180);
-            this.timerPresetItem180.connect('activate', Lang.bind(this, this.doTimePreset180, '_output'));
-            
-            this.timerPresetItem120 = new PopupMenu.PopupMenuItem("120 Minutes - 2 hrs.");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem120);
-            this.timerPresetItem120.connect('activate', Lang.bind(this, this.doTimePreset120, '_output'));
-            
-            this.timerPresetItem90 = new PopupMenu.PopupMenuItem("90 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem90);
-            this.timerPresetItem90.connect('activate', Lang.bind(this, this.doTimePreset90, '_output'));
-                  
-            this.timerPresetItem60 = new PopupMenu.PopupMenuItem("60 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem60);
-            this.timerPresetItem60.connect('activate', Lang.bind(this, this.doTimePreset60, '_output'));
-            
-            this.timerPresetItem45 = new PopupMenu.PopupMenuItem("45 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem45);
-            this.timerPresetItem45.connect('activate', Lang.bind(this, this.doTimePreset45, '_output'));
-            
-            this.timerPresetItem30 = new PopupMenu.PopupMenuItem("30 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem30);
-            this.timerPresetItem30.connect('activate', Lang.bind(this, this.doTimePreset30, '_output'));
-            
-            this.timerPresetItem20 = new PopupMenu.PopupMenuItem("20 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem20);
-            this.timerPresetItem20.connect('activate', Lang.bind(this, this.doTimePreset20, '_output'));
-            
-            this.timerPresetItem15 = new PopupMenu.PopupMenuItem("15 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem15);
-            this.timerPresetItem15.connect('activate', Lang.bind(this, this.doTimePreset15, '_output'));
-            
-            this.timerPresetItem10 = new PopupMenu.PopupMenuItem("10 Minutes");
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem10);
-            this.timerPresetItem10.connect('activate', Lang.bind(this, this.doTimePreset10, '_output'));
-      
-            this.timerPresetItem5 = new PopupMenu.PopupMenuItem("5 Minutes"); // 5 minutes
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem5);
-            this.timerPresetItem5.connect('activate', Lang.bind(this, this.doTimePreset5));
-            
-            this.timerPresetItem3 = new PopupMenu.PopupMenuItem("3 Minutes"); // 1 minutes
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem3);
-            this.timerPresetItem3.connect('activate', Lang.bind(this, this.doTimePreset3));
-            
-            this.timerPresetItem1 = new PopupMenu.PopupMenuItem("1 Minute"); // 1 minutes
-            this.presetTimeMenu.menu.addMenuItem(this.timerPresetItem1);
-            this.timerPresetItem1.connect('activate', Lang.bind(this, this.doTimePreset1));
+            this.presetTimeMenu = new PopupMenu.PopupSubMenuMenuItem(_("Time Presets"));
+	    
+	    this.Timers.forEach( (timerOpt) => {
+                
+                var timerMinutes, timerLabel;
+                if( timerOpt !== null && typeof timerOpt === 'object'){
+                    timerMinutes = timerOpt.minutes;
+                    timerLabel = timerOpt.label;
+                }else{
+                    timerMinutes = timerOpt;
+                    timerLabel = timerOpt + " Minutes";
+                }
+                
+                var timerPresetItem = new PopupMenu.PopupMenuItem(_(timerLabel));
+                this.presetTimeMenu.menu.addMenuItem(timerPresetItem);
+                timerPresetItem.connect('activate', Lang.bind(this, () => {
+                    this.timerDuration = timerMinutes;
+                    this.doStartTimer();
+                }, '_output')); 
+            });
             
             this.menu.addMenuItem(this.presetTimeMenu);  
     },
     
-    
-    doTimePreset240: function() {
-                this.timerDuration = 240;
-                this.doStartTimer();
-    },
-    
-    doTimePreset180: function() {
-                this.timerDuration = 180;
-                this.doStartTimer();
-    },
-    
-    doTimePreset120: function() {
-                this.timerDuration = 120;
-                this.doStartTimer();
-    },
-    
-    doTimePreset90: function() {
-                this.timerDuration = 90;
-                this.doStartTimer();
-    },
-    
-    doTimePreset60: function() {
-                this.timerDuration = 60;
-                this.doStartTimer();
-    },
-    
-    doTimePreset45: function() {
-                this.timerDuration = 45;
-                this.doStartTimer();
-    },
-    
-    doTimePreset30: function() {
-                this.timerDuration = 30;
-                this.doStartTimer();
-    },
-    
-    doTimePreset20: function() {
-                this.timerDuration = 20;
-                this.doStartTimer();
-    },
-    
-    doTimePreset15: function() {
-                this.timerDuration = 15;
-                this.doStartTimer();
-    },
-    
-    doTimePreset10: function() {
-                this.timerDuration = 10;
-                this.doStartTimer();
-    },
-    
-    doTimePreset5: function() {
-                this.timerDuration = 5;
-                this.doStartTimer();
-    },
-    
-    doTimePreset3: function() {
-                this.timerDuration = 3;
-                this.doStartTimer();
-    },
-    
-    doTimePreset1: function() {
-                this.timerDuration = 1;
-                this.doStartTimer();
-    },
-    
-
     
     doTimerSwitch: function(item) {
         if (item.state) {
@@ -279,12 +188,12 @@ MyApplet.prototype = {
         this.startTime = this.getCurrentTime();
         this.endTime = this.startTime + this.timerDuration *  60 * 1000;
         
-        this.timerMenuItem.label.text = "Minutes: " + this.timerDuration;
+        this.timerMenuItem.label.text = _("Minutes: ") + this.timerDuration;
         if (AppOptions.LabelOn) {
             this.set_applet_label(this.timerDuration.toString());
         }  
  
-        let timeStr = "Timer: " + this.timerDuration + " min.";
+        let timeStr = _("Timer: ") + this.timerDuration + _(" min.");
         this.set_applet_tooltip(_(timeStr));
         Mainloop.timeout_add_seconds(1, Lang.bind(this, this.doUpdateUI));
     },
@@ -300,7 +209,7 @@ MyApplet.prototype = {
         this.set_applet_icon_path(AppletDir + "/" + AppOptions.AppIcon);
      
         this.timerSwitch.setToggleState(false);
-        this.set_applet_tooltip(_("Timer: " + this.timerDuration + " min. OFF"));
+        this.set_applet_tooltip(_("Timer: ") + this.timerDuration + _(" min. OFF"));
     },
     
     doUpdateUI: function() {
@@ -312,8 +221,8 @@ MyApplet.prototype = {
         }
         this.timerDuration = Math.round( (this.endTime - this.getCurrentTime()) / 60000);
         
-        this.timerMenuItem.label.text = "Minutes: " + this.timerDuration; 
-        let timeStr = "Timer: " + this.timerDuration + " min.";
+        this.timerMenuItem.label.text = _("Minutes: ") + this.timerDuration; 
+        let timeStr = _("Timer: ") + this.timerDuration + _(" min.");
         this.set_applet_tooltip(_(timeStr));
         if (AppOptions.LabelOn) {
             this.set_applet_label(this.timerDuration.toString());
@@ -357,8 +266,8 @@ MyApplet.prototype = {
         let position = parseFloat(value);
         this.timerDuration = Math.round(position/1.65 * 100);
         if (this.timerDuration > 60) this.timerDuration = 60;
-        this.timerMenuItem.label.text = "Minutes: " + this.timerDuration;  
-        let timeStr = "Timer: " + this.timerDuration + " min.";
+        this.timerMenuItem.label.text = _("Minutes: ") + this.timerDuration;  
+        let timeStr = _("Timer: ") + this.timerDuration + _(" min.");
         this.set_applet_tooltip(_(timeStr));
     },
     

@@ -1,24 +1,34 @@
 const St = imports.gi.St;
 const Lang = imports.lang;
-const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 const Main = imports.ui.main;
 const GLib = imports.gi.GLib;
 const Util = imports.misc.util;
 const Mainloop = imports.mainloop;
 const Applet = imports.ui.applet;
-const Gettext = imports.gettext.domain('cinnamon-applets');
-const _ = Gettext.gettext;
+const Settings = imports.ui.settings;
+const Gettext = imports.gettext;
+const UUID = "temperature@fevimu";
 
-function MyApplet(orientation) {
-    this._init(orientation);
+Gettext.bindtextdomain(UUID, GLib.get_home_dir() + "/.local/share/locale")
+
+function _(str) {
+  return Gettext.dgettext(UUID, str);
+}
+
+function MyApplet(orientation, instance_id) {
+    this._init(orientation, instance_id);
 }
 
 MyApplet.prototype = {
     __proto__: Applet.TextApplet.prototype,
 
-    _init: function(orientation) {
-        Applet.TextApplet.prototype._init.call(this, orientation);
+    _init: function(orientation, instance_id) {
+        Applet.TextApplet.prototype._init.call(this, orientation, instance_id);
+
+        this.settings = new Settings.AppletSettings(this, UUID, instance_id);
+
+        this.settings.bind("use-fahrenheit", "use_fahrenheit", this._update_temp);
 
         this.lang = {
             'acpi' : 'ACPI Adapter',
@@ -30,7 +40,7 @@ MyApplet.prototype = {
             style_class: "temperature-label"
         });
 
-        
+
 		try {
 
 			// Create the popup menu
@@ -39,22 +49,22 @@ MyApplet.prototype = {
         	this.sensorsPath = this._detectSensors();
 
 			//this.command=["xdg-open", "http://github.com/xtranophilist/gnome-shell-extension-cpu-temperature/issues/"];
-			
+
 
 			if(this.sensorsPath){
-				this.title='Error';
-				this.content='Run sensors-detect as root. If it doesn\'t help, click here to report with your sensors output!';
+				this.title=_("Error");
+				this.content=_("Run sensors-detect as root. If it doesn\'t help, click here to report with your sensors output!");
 			}
 			else{
-				this.title='Warning';
-				this.content='Please install lm_sensors. If it doesn\'t help, click here to report with your sensors output!';
+				this.title=_("Warning");
+				this.content=_("Please install lm_sensors. If it doesn\'t help, click here to report with your sensors output!");
 			}
-			
-						
+
+
             this.set_applet_tooltip(_("Temperature"))
-            
+
 			this._update_temp();
-			
+
         }
         catch (e) {
             global.logError(e);
@@ -64,7 +74,7 @@ MyApplet.prototype = {
     on_applet_clicked: function(event) {
 		this.menu.toggle();
     },
-    
+
     _detectSensors: function(){
         //detect if sensors is installed
         let ret = GLib.spawn_command_line_sync("which sensors");
@@ -73,18 +83,18 @@ MyApplet.prototype = {
         }
         return null;
     },
-    
-    
-    
+
+
+
     _update_temp: function() {
         let items = new Array();
         let tempInfo=null;
         if (this.sensorsPath){
-            
+
             let sensors_output = GLib.spawn_command_line_sync(this.sensorsPath);//get the output of the sensors command
-            
+
             if(sensors_output[0]) tempInfo = this._findTemperatureFromSensorsOutput(sensors_output[1].toString());//get temperature from sensors
-            
+
             if (tempInfo){
                 var s=0, n=0;//sum and count
                 for (let adapter in tempInfo){
@@ -107,22 +117,22 @@ MyApplet.prototype = {
                         }
                     }
                 }
-                
-                
+
+
                 if (n!=0){//if temperature is detected
                     this.title=this._formatTemp(s/n);//set title as average
                 }
             }
         }
-        
+
 		//if we don't have the temperature yet, use some known files
 		if(!tempInfo){
 		    tempInfo = this._findTemperatureFromFiles();
 		    if(tempInfo.temp){
 		        this.title=this._formatTemp(tempInfo.temp);
-		        items.push('Current Temperature : '+this._formatTemp(tempInfo.temp));
+		        items.push(_("Current Temperature : ")+this._formatTemp(tempInfo.temp));
 		        if (tempInfo.crit)
-		            items.push('Critical Temperature : '+this._formatTemp(tempInfo.crit));
+		            items.push(_("Critical Temperature : ")+this._formatTemp(tempInfo.crit));
 		    }
 		}
 
@@ -131,7 +141,7 @@ MyApplet.prototype = {
             c.destroy()
         });
 
-		let section = new PopupMenu.PopupMenuSection("Temperature");
+		let section = new PopupMenu.PopupMenuSection(_("Temperature"));
         if (items.length>0){
             let item;
             for each (let itemText in items){
@@ -158,11 +168,11 @@ MyApplet.prototype = {
 
         //update every 5 seconds
 		Mainloop.timeout_add(5000, Lang.bind(this, this._update_temp));
-    
+
 	},
-	
+
 	_createSectionForText: function(txt){
-		    let section = new PopupMenu.PopupMenuSection("Temperature");
+		    let section = new PopupMenu.PopupMenuSection(_("Temperature"));
 		    let item = new PopupMenu.PopupMenuItem("");
 		    item.addActor(new St.Label({
 		        text:txt,
@@ -217,7 +227,7 @@ MyApplet.prototype = {
         return info;
     },
 
-	
+
 	_findTemperatureFromSensorsOutput: function(txt){
         let senses_lines=txt.split("\n");
         let line = '';
@@ -333,15 +343,15 @@ MyApplet.prototype = {
         }
         return s;
     },
-	
-	
+
+
     _isAdapter: function(line){
         if(line.substr(0, 8)=='Adapter:') {
             return true;
         }
         return false;
     },
-    
+
     _getHigh: function(t){
         let r;
         return (r=/high=\+(\d{1,3}.\d)/.exec(t))?parseFloat(r[1]):null;
@@ -363,16 +373,17 @@ MyApplet.prototype = {
     },
 
     _getContent: function(c){
-        return c.toString()+"\u1d3cC / "+this._toFahrenheit(c).toString()+"\u1d3cF";
+        return c.toString()+" °C / "+this._toFahrenheit(c).toString()+" °F";
     },
 
     _formatTemp: function(t) {
-        //uncomment the next line to display temperature in Fahrenheit
-        //return this._toFahrenheit(t).toString()+"\u1d3cF";
-        return (Math.round(t*10)/10).toFixed(1).toString()+"\u1d3cC";
+        if (this.use_fahrenheit)
+            return this._toFahrenheit(t).toString()+" °F";
+        else
+            return (Math.round(t*10)/10).toFixed(1).toString()+" °C";
     }
-    
-    
+
+
 }
 
 //for debugging
@@ -382,7 +393,7 @@ function debug(a){
 }
 
 
-function main(metadata, orientation) {
-    let myApplet = new MyApplet(orientation);
+function main(metadata, orientation, instance_id) {
+    let myApplet = new MyApplet(orientation, instance_id);
     return myApplet;
 }

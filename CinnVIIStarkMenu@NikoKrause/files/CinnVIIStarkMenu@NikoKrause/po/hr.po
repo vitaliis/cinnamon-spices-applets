@@ -7,17 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CinnVIIStarkMenu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 19:36+0100\n"
-"PO-Revision-Date: 2017-02-26 20:37+0100\n"
+"POT-Creation-Date: 2017-05-08 14:36+0200\n"
+"PO-Revision-Date: 2017-05-08 14:36+0200\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2017-03-19 06:53+0000\n"
 "X-Generator: Poedit 1.8.7.1\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
-"Language: hr\n"
 
 #: 3.2/applet.js:175 2.6/applet.js:176
 msgid "Please enter your password to uninstall this application"
@@ -47,84 +48,133 @@ msgstr "Deinstaliraj"
 msgid "Run with NVIDIA GPU"
 msgstr "Pokreni s NVIDIA GPU"
 
-#: 3.2/applet.js:425 3.2/applet.js:459 2.6/applet.js:426 2.6/applet.js:460
+#: 3.2/applet.js:439 3.2/applet.js:473 2.6/applet.js:426 2.6/applet.js:460
 msgid "No description available"
 msgstr "Nema dostupnog opisa"
 
-#: 3.2/applet.js:746 2.6/applet.js:761
-msgid "Open with"
-msgstr "Otvori s"
-
-#: 3.2/applet.js:792 2.6/applet.js:807
-msgid "Other application..."
-msgstr "Ostale aplikacije..."
-
-#: 3.2/applet.js:869 2.6/applet.js:884
-msgid "Clear list"
-msgstr "Obriši popis"
-
-#: 3.2/applet.js:917 2.6/applet.js:932
-msgid "All Applications"
-msgstr "Sve aplikacije"
-
-#: 3.2/applet.js:945 2.6/applet.js:960
-msgid "Places"
-msgstr "Lokacije"
-
-#: 3.2/applet.js:969 2.6/applet.js:984
-msgid "Recent Files"
-msgstr "Nedavne datoteke"
-
-#: 3.2/applet.js:1566 3.2/applet.js:1736 2.6/applet.js:1581 2.6/applet.js:1751
-msgid "Logout"
-msgstr "Odjava"
-
-#: 3.2/applet.js:1568 2.6/applet.js:1583
-msgid "Lock Screen"
-msgstr "Zaključavanje zaslona"
-
-#: 3.2/applet.js:1729 2.6/applet.js:1744
-msgid "Shutdown the computer"
-msgstr "Isključite računalo"
-
-#: 3.2/applet.js:1730 2.6/applet.js:1745
-msgid "Leave the session"
-msgstr "Odjavite sesiju"
-
-#: 3.2/applet.js:1731 2.6/applet.js:1746
-msgid "Lock the screen"
-msgstr "Zaključajte zaslon"
-
-#: 3.2/applet.js:1733 3.2/applet.js:1734 2.6/applet.js:1748 2.6/applet.js:1749
-msgid "Quit"
-msgstr "Isključi"
-
-#: 3.2/applet.js:1745 3.2/applet.js:1749 2.6/applet.js:1760 2.6/applet.js:1764
-msgid "Lock screen"
-msgstr "Zaključaj zaslon"
-
-#. 3.2->settings-schema.json->menu->title
-#: 3.2/applet.js:1963 2.6/applet.js:1975
-msgid "Menu"
-msgstr "Izbornik"
-
-#: 3.2/applet.js:3282 2.6/applet.js:3262
+#: 3.2/applet.js:740 2.6/applet.js:3289
 msgid "This file is no longer available"
 msgstr "Ova datoteka više nije dostupna"
 
-#: 3.2/applet.js:3314 2.6/applet.js:3294
+#: 3.2/applet.js:790 2.6/applet.js:761
+msgid "Open with"
+msgstr "Otvori s"
+
+#: 3.2/applet.js:836 2.6/applet.js:807
+msgid "Other application..."
+msgstr "Ostale aplikacije..."
+
+#: 3.2/applet.js:911 2.6/applet.js:884
+msgid "Clear list"
+msgstr "Obriši popis"
+
+#: 3.2/applet.js:957 2.6/applet.js:932
+msgid "All Applications"
+msgstr "Sve aplikacije"
+
+#: 3.2/applet.js:986 2.6/applet.js:960
+msgid "Places"
+msgstr "Lokacije"
+
+#: 3.2/applet.js:1010 2.6/applet.js:984
+msgid "Recent Files"
+msgstr "Nedavne datoteke"
+
+#: 3.2/applet.js:1609 3.2/applet.js:1792 2.6/applet.js:1583 2.6/applet.js:1759
+msgid "Logout"
+msgstr "Odjava"
+
+#: 3.2/applet.js:1611 2.6/applet.js:1585
+msgid "Lock Screen"
+msgstr "Zaključavanje zaslona"
+
+#: 3.2/applet.js:1785 2.6/applet.js:1752
+msgid "Shutdown the computer"
+msgstr "Isključite računalo"
+
+#: 3.2/applet.js:1786 2.6/applet.js:1753
+msgid "Leave the session"
+msgstr "Odjavite sesiju"
+
+#: 3.2/applet.js:1787 2.6/applet.js:1754
+msgid "Lock the screen"
+msgstr "Zaključajte zaslon"
+
+#: 3.2/applet.js:1789 3.2/applet.js:1790 2.6/applet.js:1756 2.6/applet.js:1757
+msgid "Quit"
+msgstr "Isključi"
+
+#: 3.2/applet.js:1801 3.2/applet.js:1805 2.6/applet.js:1768 2.6/applet.js:1772
+msgid "Lock screen"
+msgstr "Zaključaj zaslon"
+
+# ########################################################################
+#: 3.2/applet.js:2012
+msgid "All Programs"
+msgstr "Sve aplikacije"
+
+#: 3.2/applet.js:2012
+msgid "Favorites"
+msgstr "Omiljeni"
+
+#: 3.2/applet.js:2013
+msgid "Documents"
+msgstr "Dokumenti"
+
+#: 3.2/applet.js:2013
+msgid "nemo Documents"
+msgstr "nemo Dokumenti"
+
+#: 3.2/applet.js:2014
+msgid "Pictures"
+msgstr "Slike"
+
+#: 3.2/applet.js:2014
+msgid "nemo Pictures"
+msgstr "nemo Slike"
+
+#: 3.2/applet.js:2015
+msgid "Music"
+msgstr "Glazba"
+
+#: 3.2/applet.js:2015
+msgid "nemo Music"
+msgstr "nemo Glazba"
+
+#: 3.2/applet.js:2016
+msgid "Videos"
+msgstr "Snimke"
+
+#: 3.2/applet.js:2016
+msgid "nemo Videos"
+msgstr "nemo Snimke"
+
+#: 3.2/applet.js:2017
+msgid "Downloads"
+msgstr "Preuzimanja"
+
+#: 3.2/applet.js:2017
+msgid "nemo Downloads"
+msgstr "nemo Preuzimanja"
+
+#. 3.2->settings-schema.json->menu->title
+#: 3.2/applet.js:2033 2.6/applet.js:1983
+msgid "Menu"
+msgstr "Izbornik"
+
+#: 3.2/applet.js:3473 2.6/applet.js:3321
 msgid "No recent documents"
 msgstr "Nema nedavnih dokumenata"
 
-#: 3.2/applet.js:3617 2.6/applet.js:3612
+#: 3.2/applet.js:3861 2.6/applet.js:3634
 msgid "Type to search..."
 msgstr "Upišite za pretragu..."
 
-#: 3.2/applet.js:4137 2.6/applet.js:4131
+#: 3.2/applet.js:4380 2.6/applet.js:4136
 msgid "No results found"
 msgstr "Nema pronađenih rezultata"
 
-#: 3.2/applet.js:4139 2.6/applet.js:4133
+#: 3.2/applet.js:4382 2.6/applet.js:4138
 #, javascript-format
 msgid "%d result found"
 msgid_plural "%d results found"
@@ -223,12 +273,12 @@ msgstr "Treba li ili ne prikazati brzi pokretač u bočnoj traci."
 #. 3.2->settings-schema.json->quicklauncher-5-label->description
 #. 3.2->settings-schema.json->quicklauncher-10-label->description
 #. 3.2->settings-schema.json->quicklauncher-18-label->description
+#. 3.2->settings-schema.json->quicklauncher-1-label->description
 #. 3.2->settings-schema.json->quicklauncher-0-label->description
 #. 3.2->settings-schema.json->quicklauncher-11-label->description
 #. 3.2->settings-schema.json->quicklauncher-8-label->description
 #. 3.2->settings-schema.json->quicklauncher-13-label->description
 #. 3.2->settings-schema.json->quicklauncher-17-label->description
-#. 3.2->settings-schema.json->quicklauncher-1-label->description
 #. 3.2->settings-schema.json->quicklauncher-15-label->description
 #. 3.2->settings-schema.json->quicklauncher-4-label->description
 #. 3.2->settings-schema.json->quicklauncher-12-label->description
@@ -243,12 +293,12 @@ msgstr "Treba li ili ne prikazati brzi pokretač u bočnoj traci."
 #. 2.6->settings-schema.json->quicklauncher-5-label->description
 #. 2.6->settings-schema.json->quicklauncher-10-label->description
 #. 2.6->settings-schema.json->quicklauncher-18-label->description
+#. 2.6->settings-schema.json->quicklauncher-1-label->description
 #. 2.6->settings-schema.json->quicklauncher-0-label->description
 #. 2.6->settings-schema.json->quicklauncher-11-label->description
 #. 2.6->settings-schema.json->quicklauncher-8-label->description
 #. 2.6->settings-schema.json->quicklauncher-13-label->description
 #. 2.6->settings-schema.json->quicklauncher-14-label->description
-#. 2.6->settings-schema.json->quicklauncher-1-label->description
 #. 2.6->settings-schema.json->quicklauncher-15-label->description
 #. 2.6->settings-schema.json->quicklauncher-4-label->description
 #. 2.6->settings-schema.json->quicklauncher-12-label->description
@@ -266,12 +316,12 @@ msgstr "Naziv brzog pokretača"
 #. 3.2->settings-schema.json->quicklauncher-5-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-10-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-18-label->tooltip
+#. 3.2->settings-schema.json->quicklauncher-1-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-0-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-11-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-8-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-13-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-17-label->tooltip
-#. 3.2->settings-schema.json->quicklauncher-1-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-15-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-4-label->tooltip
 #. 3.2->settings-schema.json->quicklauncher-12-label->tooltip
@@ -286,12 +336,12 @@ msgstr "Naziv brzog pokretača"
 #. 2.6->settings-schema.json->quicklauncher-5-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-10-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-18-label->tooltip
+#. 2.6->settings-schema.json->quicklauncher-1-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-0-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-11-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-8-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-13-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-14-label->tooltip
-#. 2.6->settings-schema.json->quicklauncher-1-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-15-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-4-label->tooltip
 #. 2.6->settings-schema.json->quicklauncher-12-label->tooltip
@@ -678,6 +728,31 @@ msgstr "Samo nazivi"
 msgid "Icons only"
 msgstr "Samo ikone"
 
+#. 3.2->settings-schema.json->user-box-layout->description
+#. 2.6->settings-schema.json->user-box-layout->description
+msgid "User account info box style"
+msgstr "Izgled okvira informacija korisničkog računa"
+
+#. 3.2->settings-schema.json->user-box-layout->tooltip
+#. 2.6->settings-schema.json->user-box-layout->tooltip
+msgid "Choose whether to show the user name and/or user picture."
+msgstr "Odaberite treba li prikazati korisničko ime i/ili korisničku sliku."
+
+#. 3.2->settings-schema.json->user-box-layout->options
+#. 2.6->settings-schema.json->user-box-layout->options
+msgid "Hide"
+msgstr "Sakrij"
+
+#. 3.2->settings-schema.json->user-box-layout->options
+#. 2.6->settings-schema.json->user-box-layout->options
+msgid "User picture only"
+msgstr "Samo slika korisnika"
+
+#. 3.2->settings-schema.json->user-box-layout->options
+#. 2.6->settings-schema.json->user-box-layout->options
+msgid "User picture and user name"
+msgstr "Slika korisnika i korisničko ime"
+
 #. 3.2->settings-schema.json->shutdown-menu-layout->description
 #. 2.6->settings-schema.json->shutdown-menu-layout->description
 msgid "Quit buttons layout"
@@ -717,16 +792,6 @@ msgstr "Odaberite treba li ili ne prikazati ikone na aplikacijama."
 #. 2.6->settings-schema.json->overlay-key->description
 msgid "Keyboard shortcut to open and close the menu"
 msgstr "Prečaci tipkovnice za otvaranje i zatvaranje izbornika"
-
-#. 3.2->settings-schema.json->show-user-icon-label->description
-#. 2.6->settings-schema.json->show-user-icon-label->description
-msgid "Show username"
-msgstr "Prikaži korisničko ime"
-
-#. 3.2->settings-schema.json->show-user-icon-label->tooltip
-#. 2.6->settings-schema.json->show-user-icon-label->tooltip
-msgid "Choose whether or not to show the username."
-msgstr "Odaberite treba li ili ne prikazati korisničko ime."
 
 #. 3.2->settings-schema.json->enable-autoscroll->description
 #. 2.6->settings-schema.json->enable-autoscroll->description
@@ -855,60 +920,11 @@ msgstr "Odgoda prijelaza kategorijom"
 msgid "Delay between switching categories"
 msgstr "Odgoda između promjena kategorija."
 
-#. CinnVIIStarkMenu@NikoKrause->metadata.json->name
-msgid "CinnVIIStarkMenu"
-msgstr "CinnVIIStarkIzbornik"
-
 #. CinnVIIStarkMenu@NikoKrause->metadata.json->description
 msgid ""
 "Cinnamon Menu with the look of the Windows 7 Start Menu or the MATE Menu"
 msgstr "Cinnamon izbornik izgleda poput Windows 7 ili Mate izbornika."
 
-# ########################################################################
-#. 2.6->settings-schema.json->all-programs-label->default
-msgid "All Programs"
-msgstr "Sve aplikacije"
-
-#. 2.6->settings-schema.json->favorites-label->default
-msgid "Favorites"
-msgstr "Omiljeni"
-
-#. 2.6->settings-schema.json->quicklauncher-2-label->default
-msgid "Documents"
-msgstr "Dokumenti"
-
-#. 2.6->settings-schema.json->quicklauncher-2-command->default
-msgid "nemo Documents"
-msgstr "nemo Dokumenti"
-
-#. 2.6->settings-schema.json->quicklauncher-3-label->default
-msgid "Pictures"
-msgstr "Slike"
-
-#. 2.6->settings-schema.json->quicklauncher-3-command->default
-msgid "nemo Pictures"
-msgstr "nemo Slike"
-
-#. 2.6->settings-schema.json->quicklauncher-4-label->default
-msgid "Music"
-msgstr "Glazba"
-
-#. 2.6->settings-schema.json->quicklauncher-4-command->default
-msgid "nemo Music"
-msgstr "nemo Glazba"
-
-#. 2.6->settings-schema.json->quicklauncher-5-label->default
-msgid "Videos"
-msgstr "Snimke"
-
-#. 2.6->settings-schema.json->quicklauncher-5-command->default
-msgid "nemo Videos"
-msgstr "nemo Snimke"
-
-#. 2.6->settings-schema.json->quicklauncher-6-label->default
-msgid "Downloads"
-msgstr "Preuzimanja"
-
-#. 2.6->settings-schema.json->quicklauncher-6-command->default
-msgid "nemo Downloads"
-msgstr "nemo Preuzimanja"
+#. CinnVIIStarkMenu@NikoKrause->metadata.json->name
+msgid "CinnVIIStarkMenu"
+msgstr "CinnVIIStark izbornik"

@@ -3,17 +3,21 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
-
+const Gettext = imports.gettext;
 const Util = imports.misc.util;
-
 const Settings = imports.ui.settings
-
 const UUID = "localipswithsettings@edaubert";
-
 const REFRESH_INTERVAL = 60
 
 const IP_REGEX = /[0-9]+: [\w-]+ +inet[46]? +(((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.)?){4}|(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))).*/;
 
+// Translation support
+// ----------
+Gettext.bindtextdomain(UUID, GLib.get_home_dir() + "/.local/share/locale")
+
+function _(str) {
+  return Gettext.dgettext(UUID, str);
+}
 
 // Logging
 // ----------
@@ -44,6 +48,16 @@ MyApplet.prototype = {
             this.set_applet_label("...");
         } catch (error) {
             logError(error);
+        }
+    },
+    log: function (message) {
+        if (this.debug) {
+            log(message);
+        }
+    },
+    logError: function (message) {
+        if (this.debug) {
+            logError(message);
         }
     },
     bindProperties: function () {
@@ -79,15 +93,23 @@ MyApplet.prototype = {
             this.refreshLocation,
             null
         );
+       this.settings.bindProperty(
+            Settings.BindingDirection.IN,
+            "debug",
+            "debug",
+            function () {},
+            null
+        );
     },
     unbindProperties: function () {
         this.settings.unbindProperty("refreshInterval");
         this.settings.unbindProperty("IPv4");
         this.settings.unbindProperty("IPv6");
         this.settings.unbindProperty("inet");
+        this.settings.unbindProperty("debug");
     },
     refreshLocation: function refreshLocation () {
-        log("Run refreshLocation");
+        this.log("Run refreshLocation");
         let command = ["ip", "-o"];
         if (this.IPv4 && !this.IPv6) {
             command.push("-4");
@@ -96,7 +118,7 @@ MyApplet.prototype = {
         }
         command.push("addr");
 
-        log(command);
+        this.log(command);
 
         Util.spawn_async(
             command,
@@ -116,7 +138,7 @@ MyApplet.prototype = {
     processIps: function (out) {
         const INET_REGEX = new RegExp("[0-9]+: (" + this.inet.replace(/,/g, "|") +") +inet[46]? +(.*)");
 
-        log(INET_REGEX);
+        this.log(INET_REGEX);
 
         var ipsSplitted = String(out).split("\n");
         ips = "";
@@ -128,13 +150,13 @@ MyApplet.prototype = {
                 }
                 first = false;
 
-                log(ipsSplitted[i]);
-                log(ipsSplitted[i].replace(IP_REGEX, "$1"));
+                this.log(ipsSplitted[i]);
+                this.log(ipsSplitted[i].replace(IP_REGEX, "$1"));
 
                 ips = ips + ipsSplitted[i].replace(IP_REGEX, "$1");
             }
         }
-        log(ips);
+        this.log(ips);
 
         ips = String(ips).trim();
 
